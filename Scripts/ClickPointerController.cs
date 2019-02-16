@@ -6,7 +6,7 @@ public class ClickPointerController : MonoBehaviour
 {
     public float lifeTime;
     private float startTime;
-    private GameController gameController;
+    private GameController5Target gameController;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class ClickPointerController : MonoBehaviour
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         if (gameControllerObject != null)
         {
-            gameController = gameControllerObject.GetComponent<GameController>();
+            gameController = gameControllerObject.GetComponent<GameController5Target>();
         }
 
         if (gameController == null)

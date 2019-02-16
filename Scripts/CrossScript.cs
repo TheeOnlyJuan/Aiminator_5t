@@ -5,37 +5,36 @@ using UnityEngine;
 public class CrossScript : MonoBehaviour
 {
     public GameObject ClickPoint;
-    public float lifeTime;
-    private float startTime;
-    // public float speed;
-    // private Rigidbody2D rb2d;
-    //private float mouseX;
-    //private float mouseY;
+    public float speed;
+    //public float xMin, xMax, yMin, yMax;
+    private float mouseX;
+    private float mouseY;
 
     // Start is called before the first frame update
     void Start()
     {
-        //transform.position = new Vector2(0, 0);
+        transform.position = new Vector3(0,0,-5);
 
-
-        //============================================================================
-        // this black is for keyboard moving
-        //============================================================================
-        // rb2d = GetComponent<Rigidbody2D>();
-        // ===========================================================================
     }
 
     // Update is called once per frame
     void Update()
     {
+        float moveHorizontal = Input.GetAxis("Mouse X");
+        float moveVertical = Input.GetAxis("Mouse Y");
+        transform.position += new Vector3(moveHorizontal * Time.deltaTime * speed, moveVertical * Time.deltaTime * speed, 0);
+       // transform.position = new Vector3
+       //(
+       //    Mathf.Clamp(transform.position.x, xMin, xMax),
+       //    Mathf.Clamp(transform.position.y, yMin, yMax),
+       //    0
 
+       //);
         if (Input.GetMouseButtonUp(0))
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = mousePosition;
-            startTime = Time.time;
+            //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //gameObject.GetComponent<Collider2D>().enabled = true;
-            Instantiate(ClickPoint, new Vector3(mousePosition.x, mousePosition.y, 0), Quaternion.identity);
+            Instantiate(ClickPoint, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 
         }
         //if ((Time.time - startTime) >= lifeTime)
@@ -44,25 +43,5 @@ public class CrossScript : MonoBehaviour
         //    //gameObject.GetComponent<Collider2D>().enabled = false;
         //}
     }
-    // FixedUpdate is called after each physic calculation
 
-    void FixedUpdate()
-    {
-        // move crosshair to current mouse position
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = mousePosition;
-
-        // click mouse left button to generate a collider box
-        
-        
-
-        //============================================================================
-        // this black is for keyboard moving
-        //============================================================================
-        // float moveHorizontal = Input.GetAxis("Horizontal");
-        // float moveVertical = Input.GetAxis("Vertical");
-        //
-        //rb2d.AddForce(new Vector2(moveHorizontal * speed, moveVertical * speed));
-        //============================================================================
-    }
 }

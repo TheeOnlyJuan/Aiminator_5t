@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour
+public class GameController5Target : MonoBehaviour
 {
     public float xRangeMin;
     public float xRangeMax;
@@ -17,6 +17,10 @@ public class GameController : MonoBehaviour
 
     public float gameTime;
     public GameObject Target;
+    public GameObject Target2;
+    public GameObject Target3;
+    public GameObject Target4;
+    public GameObject Target5;
 
     public Text scoreText;
     public Text streakText;
@@ -38,9 +42,27 @@ public class GameController : MonoBehaviour
 
         float xPosition = Random.Range(xRangeMin, xRangeMax);
         float yPosition = Random.Range(xRangeMin, xRangeMax);
-        float zPosition = Random.Range(0, 5);
-        Vector3 newSpawnPosition = new Vector3(xPosition, yPosition, 500);
-        Instantiate(Target, newSpawnPosition, Quaternion.identity);
+        int zPosition = Random.Range(0, 5);
+        Vector3 newSpawnPosition = new Vector3(xPosition, yPosition, 1);
+        switch (zPosition)
+        {
+            case 0:
+                Instantiate(Target, newSpawnPosition, Quaternion.identity);
+                break;
+            case 1:
+                Instantiate(Target2, newSpawnPosition, Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(Target3, newSpawnPosition, Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(Target4, newSpawnPosition, Quaternion.identity);
+                break;
+            case 4:
+                Instantiate(Target5, newSpawnPosition, Quaternion.identity);
+                break;
+        }
+        //Instantiate(Target, newSpawnPosition, Quaternion.identity);
 
     }
 
@@ -75,24 +97,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-       // Randomly generate targets 
-       //if (curNumTargets <= maxNumTargets)
-       //{
-       //     //SpawnTargets();
-
-       //     float xPosition = Random.Range(xRangeMin, xRangeMax);
-       //     float yPosition = Random.Range(yRangeMin, yRangeMax);
-       //     //float xPosition = 10;
-       //     //float yPosition = 10;
-       //     Vector3 newSpawnPosition = new Vector3(xPosition, yPosition, 0);
-       //     Instantiate(Target, newSpawnPosition, Quaternion.identity);
-       //     nextTarget = Time.time + timeInterval;
-        
-       // }
-       // Display results
-      
-            
+                
         hitNumberText.text = "You hit: " + hitNumber;
         scoreText.text = "Score : " + score;
         streakText.text = "Current Streak: " + streak;
