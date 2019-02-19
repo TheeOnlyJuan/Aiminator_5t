@@ -32,6 +32,7 @@ public class GameController5Target : MonoBehaviour
     private int targetNumber;
     private int hitNumber;
     private int missCounter;
+    int hitPercent = 100;
 
     private int streak;
     private int score;
@@ -71,6 +72,7 @@ public class GameController5Target : MonoBehaviour
     void Start()
     {
         // first target spawn is delayed
+        Cursor.visible = false;
         new WaitForSeconds(startWaitTime);
         startTime = Time.time;
         nextTarget = 0;
@@ -97,13 +99,21 @@ public class GameController5Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                
+        if ((Time.time - startTime) >= gameTime)
+        {
+            Cursor.visible = true;
+            new WaitForSeconds(5);
+            PlayerStats.Kills = hitNumber;
+            PlayerStats.Score = score;
+            PlayerStats.Accuracy = hitPercent;
+            PlayerStats.Streak = streak;
+        }
         hitNumberText.text = "You hit: " + hitNumber;
         scoreText.text = "Score : " + score;
         streakText.text = "Current Streak: " + streak;
         if (score > 0)
             {
-            int hitPercent = (int)((float)hitNumber / (hitNumber + missCounter) * 100);
+            hitPercent = (int)((float)hitNumber / (hitNumber + missCounter) * 100);
             hitRateText.text = "Hit rate is: " + hitPercent;
             //Debug.Log(hitPercent + "");
         } else
@@ -125,6 +135,7 @@ public class GameController5Target : MonoBehaviour
         streak++;
         hitNumber++;
         //curNumTargets--;
+        GetComponent<AudioSource>().Play();
         SpawnTargets();
     }
 

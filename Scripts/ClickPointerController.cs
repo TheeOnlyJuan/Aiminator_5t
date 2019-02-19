@@ -31,15 +31,11 @@ public class ClickPointerController : MonoBehaviour
         if ((Time.time - startTime) >= lifeTime)
         {
             //CrossHair.collider2D.enabled = false;
+
             Debug.Log("destoryed");
             gameController.Miss();
             Destroy(this.gameObject);
         }
-    }
-    void OnCollisionEnter(Collision col)
-    {
-        Debug.Log("h");
-        Destroy(this.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

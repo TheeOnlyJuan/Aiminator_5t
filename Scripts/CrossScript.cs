@@ -10,6 +10,7 @@ public class CrossScript : MonoBehaviour
     private float mouseX;
     private float mouseY;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class CrossScript : MonoBehaviour
         {
             //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //gameObject.GetComponent<Collider2D>().enabled = true;
+            GetComponent<AudioSource>().Play();
             Instantiate(ClickPoint, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 
         }

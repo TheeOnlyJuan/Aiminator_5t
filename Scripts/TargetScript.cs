@@ -55,8 +55,13 @@ public class TargetScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(this.gameObject);
+        playAudio();
         gameController.HitNumberPlusOne();
+        Destroy(this.gameObject);
         //gameController.TargetNumberAddOne();
+    }
+    private void playAudio()
+    {
+        GetComponent<AudioSource>().Play();
     }
 }
