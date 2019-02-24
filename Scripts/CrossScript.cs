@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrossScript : MonoBehaviour
 {
     public GameObject ClickPoint;
+    public GameObject ClickPointLR;
     public float speed;
     //public float xMin, xMax, yMin, yMax;
     private float mouseX;
@@ -33,17 +34,17 @@ public class CrossScript : MonoBehaviour
        //);
         if (Input.GetMouseButtonUp(0))
         {
-            //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //gameObject.GetComponent<Collider2D>().enabled = true;
-            GetComponent<AudioSource>().Play();
-            Instantiate(ClickPoint, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-
+            if (PlayerStats.CurrentGame == "5Target") {
+                GetComponent<AudioSource>().Play();
+                Instantiate(ClickPoint, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+            }
+            else if (PlayerStats.CurrentGame == "LR")
+            {
+                GetComponent<AudioSource>().Play();
+                Instantiate(ClickPointLR, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+            }
         }
-        //if ((Time.time - startTime) >= lifeTime)
-        //{
-        //    //CrossHair.collider2D.enabled = false;
-        //    //gameObject.GetComponent<Collider2D>().enabled = false;
-        //}
+
     }
 
 }

@@ -16,8 +16,12 @@ public class Start5Target : MonoBehaviour
     {
         
     }
-    public void startGame()
+    public void start5Target()
     {
         SceneManager.LoadScene("MainScene");
+    }
+    public void startLR()
+    {
+        SceneManager.LoadScene("HPTargets");
     }
 }

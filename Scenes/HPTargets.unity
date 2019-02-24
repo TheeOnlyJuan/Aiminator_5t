@@ -147,6 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickPoint: {fileID: 4789468856178883884, guid: 678ec85db5c433f4daa57d467fb35b1d,
     type: 3}
+  ClickPointLR: {fileID: 5218984765953750411, guid: d0003fbe78a763f45a1e723752f7b079,
+    type: 3}
   speed: 200
 --- !u!212 &2664883
 SpriteRenderer:
@@ -1018,6 +1020,31 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4756479041756808219}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1978169339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978169338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f71f3a17d5b2443b995edabbb5f9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xRangeMin: -60
+  xRangeMax: 60
+  yRangeMin: -30
+  yRangeMax: 30
+  startWaitTime: 2
+  timeInterval: 0.5
+  maxNumTargets: 10
+  gameTime: 30
+  Target: {fileID: 1336089232, guid: 5356b8be9387a7e47b17b558fc17657d, type: 3}
+  scoreText: {fileID: 762314381}
+  streakText: {fileID: 646775957}
+  hitNumberText: {fileID: 1549902165}
+  hitRateText: {fileID: 662947292}
 --- !u!82 &1978169341
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1124,7 +1151,7 @@ PrefabInstance:
     - target: {fileID: 4756479042267748637, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: m_Name
-      value: GameController5Target
+      value: GameControllerLR
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748637, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
@@ -1136,6 +1163,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4756479042267748637, guid: 475565892ac801e4c8fa015c2bb2fba1,
+        type: 3}
+      propertyPath: m_TagString
+      value: GameLR
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: totalNumberText
@@ -1145,85 +1177,86 @@ PrefabInstance:
         type: 3}
       propertyPath: hitNumberText
       value: 
-      objectReference: {fileID: 1549902165}
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: hitRateText
       value: 
-      objectReference: {fileID: 662947292}
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: gameTime
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: timeInterval
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: maxNumTargets
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: scoreText
       value: 
-      objectReference: {fileID: 762314381}
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: streakText
       value: 
-      objectReference: {fileID: 646775957}
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: startWaitTime
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: Target2
       value: 
-      objectReference: {fileID: 440945609538994268, guid: 0f2d39baa976ec5448c5c49f725128cc,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: Target3
       value: 
-      objectReference: {fileID: 2526724911054353998, guid: 00dfa05e4613c2e4f8f7a00916528a60,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: Target4
       value: 
-      objectReference: {fileID: 3658556077144603964, guid: b5bafb40cf56a694b9c174b41b06a44c,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: Target5
       value: 
-      objectReference: {fileID: 3929920067217678371, guid: 2fab74da962dd1e4380db891bd1bb00c,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: xRangeMin
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: yRangeMax
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: yRangeMin
-      value: -25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: xRangeMax
-      value: 15
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
+        type: 3}
+      propertyPath: Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748636, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
@@ -1280,5 +1313,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 475565892ac801e4c8fa015c2bb2fba1, type: 3}

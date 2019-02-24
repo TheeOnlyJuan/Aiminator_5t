@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameController5Target : MonoBehaviour
+public class GameControllerLR : MonoBehaviour
 {
     public float xRangeMin;
     public float xRangeMax;
@@ -18,10 +18,10 @@ public class GameController5Target : MonoBehaviour
 
     public float gameTime;
     public GameObject Target;
-    public GameObject Target2;
-    public GameObject Target3;
-    public GameObject Target4;
-    public GameObject Target5;
+    //public GameObject Target2;
+    //public GameObject Target3;
+    //public GameObject Target4;
+    //public GameObject Target5;
 
     public Text scoreText;
     public Text streakText;
@@ -29,6 +29,7 @@ public class GameController5Target : MonoBehaviour
     public Text hitRateText;
 
     private float startTime;
+   
     private int targetNumber;
     private int hitNumber;
     private int missCounter;
@@ -40,29 +41,42 @@ public class GameController5Target : MonoBehaviour
     // The method to generate target at random location on the map
     void SpawnTargets()
     {
-
-        float xPosition = Random.Range(xRangeMin, xRangeMax);
-        float yPosition = Random.Range(xRangeMin, xRangeMax);
-        int zPosition = Random.Range(0, 5);
-        Vector3 newSpawnPosition = new Vector3(xPosition, yPosition, 1);
-        switch (zPosition)
+        int side = Random.Range(0 , 2);
+        float size = Random.Range(1 , 5);
+        if (side % 2 == 0)
         {
-            case 0:
-                Instantiate(Target, newSpawnPosition, Quaternion.identity);
-                break;
-            case 1:
-                Instantiate(Target2, newSpawnPosition, Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(Target3, newSpawnPosition, Quaternion.identity);
-                break;
-            case 3:
-                Instantiate(Target4, newSpawnPosition, Quaternion.identity);
-                break;
-            case 4:
-                Instantiate(Target5, newSpawnPosition, Quaternion.identity);
-                break;
+            float yPosition = Random.Range(yRangeMin, yRangeMax);
+            Vector3 newSpawnPoint = new Vector3(-65, yPosition, size);
+            GameObject test = Instantiate(Target, newSpawnPoint, Quaternion.identity);
+            test.transform.localScale = new Vector3(2 / size, 2 / size, 1);
+        }else
+        {
+            float yPosition = Random.Range(yRangeMin, yRangeMax);
+            Vector3 newSpawnPoint = new Vector3(65, yPosition, size);
+            GameObject test = Instantiate(Target, newSpawnPoint, Quaternion.identity);
+            test.transform.localScale = new Vector3(2 / size, 2 / size, 1);
         }
+        //float xPosition = Random.Range(xRangeMin, xRangeMax);
+        //float yPosition = Random.Range(xRangeMin, xRangeMax);
+        
+        //switch (zPosition)
+        //{
+        //    case 0:
+        //        Instantiate(Target, newSpawnPosition, Quaternion.identity);
+        //        break;
+        //    case 1:
+        //        Instantiate(Target2, newSpawnPosition, Quaternion.identity);
+        //        break;
+        //    case 2:
+        //        Instantiate(Target3, newSpawnPosition, Quaternion.identity);
+        //        break;
+        //    case 3:
+        //        Instantiate(Target4, newSpawnPosition, Quaternion.identity);
+        //        break;
+        //    case 4:
+        //        Instantiate(Target5, newSpawnPosition, Quaternion.identity);
+        //        break;
+        //}
         //Instantiate(Target, newSpawnPosition, Quaternion.identity);
 
     }
@@ -71,8 +85,9 @@ public class GameController5Target : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //set game mode
+        PlayerStats.CurrentGame = "LR";
         // first target spawn is delayed
-        PlayerStats.CurrentGame = "5Target";
         Cursor.visible = false;
         new WaitForSeconds(startWaitTime);
         startTime = Time.time;
@@ -93,7 +108,8 @@ public class GameController5Target : MonoBehaviour
             SpawnTargets();
         }
 
-
+        //GameObject test = Instantiate(Target, new Vector3(10, 10, 1), Quaternion.identity);
+        //test.transform.localScale = new Vector3(.25f,.25f,1);
 
     }
 

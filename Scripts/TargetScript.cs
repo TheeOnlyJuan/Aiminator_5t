@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class TargetScript : MonoBehaviour
 {
-    public float lifeTime;
-    private float startTime;
-    private float timeInterval;
-    private float nextSizeChangTime;
     private GameController5Target gameController;
 
     // Start is called before the first frame update
     void Start()
     {
-        //
-        //startTime = Time.time;
-        //timeInterval = lifeTime / 40.0f;
-        //nextSizeChangTime = 0;
-
         // cannot pass gameController at unity editor interface
         // have to do this to FIND game controller
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
@@ -33,35 +24,11 @@ public class TargetScript : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    //void FixedUpdate()
-    //{
-    //    // target life setting
-    //    if ((Time.time - startTime) >= lifeTime)
-    //    {
-    //        Destroy(this.gameObject);
-    //        gameController.TargetNumberAddOne();
-            
-    //    }
-
-    //    // target size changing
-    //    //if(Time.time > nextSizeChangTime)
-    //    //{
-    //     //   transform.localScale += new Vector3(0.0125f, 0.0125f, 0);
-    //     //   nextSizeChangTime = Time.time + timeInterval;
-    //    //}
-        
-    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        playAudio();
         gameController.HitNumberPlusOne();
         Destroy(this.gameObject);
-        //gameController.TargetNumberAddOne();
     }
-    private void playAudio()
-    {
-        GetComponent<AudioSource>().Play();
-    }
+
 }

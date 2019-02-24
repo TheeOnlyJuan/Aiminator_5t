@@ -4,8 +4,20 @@ using UnityEngine;
 
 public static class PlayerStats
 {
-    private static int score, kills, streak, accuracy;
+    private static int score, kills, streak, accuracy, misses;
+    private static string currentGame;
 
+    public static string CurrentGame
+    {
+        get
+        {
+            return currentGame;
+        }
+        set
+        {
+            currentGame = value;
+        }
+    }
     public static int Kills
     {
         get
@@ -51,6 +63,17 @@ public static class PlayerStats
         set
         {
             accuracy = value;
+        }
+    }
+    public static int Misses
+    {
+        get
+        {
+            return misses;
+        }
+        set
+        {
+            misses = value;
         }
     }
 }
