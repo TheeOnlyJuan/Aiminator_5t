@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class TargetLR : MonoBehaviour
 {
-    //public float lifeTime;
     private float startTime;
     public float speed;
-    public float test = 1;
+    private float depth = 1;
     private Vector3 destination;
 
 
@@ -18,8 +17,7 @@ public class TargetLR : MonoBehaviour
     {
         //gets end destination for the target
         destination = new Vector3(transform.position.x * -1, transform.position.y, 1);
-        test = transform.position.z;
-       // Debug.Log(transform.position.x + "" + transform.position.x * -1);
+        depth = transform.position.z;
 
         // cannot pass gameController at unity editor interface
         // have to do this to FIND game controller
@@ -38,8 +36,10 @@ public class TargetLR : MonoBehaviour
 
     void Update()
     {
-        float step = speed * Time.deltaTime / test;
+        float step = speed * Time.deltaTime / depth;
         transform.position = Vector3.MoveTowards(transform.position, destination, step);
+
+        //Once target reaches destination, a new one is set.
         if (transform.position.x == destination.x)
         {
             destination = new Vector3(transform.position.x * -1, transform.position.y, 1);
@@ -53,8 +53,6 @@ public class TargetLR : MonoBehaviour
             gameController.HitNumberPlusOne();
             Destroy(this.gameObject);
         }
-        //Destroy(this.gameObject);
-        //gameController.TargetNumberAddOne();
     }
 
 }

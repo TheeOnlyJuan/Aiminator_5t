@@ -1032,12 +1032,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f71f3a17d5b2443b995edabbb5f9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xRangeMin: -60
-  xRangeMax: 60
+  xMin: -60
+  xMax: 60
   yRangeMin: -30
   yRangeMax: 30
   startWaitTime: 2
-  timeInterval: 0.5
   maxNumTargets: 10
   gameTime: 30
   Target: {fileID: 1336089232, guid: 5356b8be9387a7e47b17b558fc17657d, type: 3}

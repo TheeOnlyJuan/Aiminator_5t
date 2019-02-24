@@ -11,7 +11,6 @@ public class ClickPointerController : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        // CrossHair.collider2D.enabled = true;
 
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         if (gameControllerObject != null)
@@ -30,9 +29,6 @@ public class ClickPointerController : MonoBehaviour
     {
         if ((Time.time - startTime) >= lifeTime)
         {
-            //CrossHair.collider2D.enabled = false;
-
-            Debug.Log("destoryed");
             gameController.Miss();
             Destroy(this.gameObject);
         }
@@ -40,6 +36,5 @@ public class ClickPointerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(this.gameObject);
-        Debug.Log("Uhhhh");
     }
 }

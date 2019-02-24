@@ -25,6 +25,7 @@ public class CrossScript : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Mouse X");
         float moveVertical = Input.GetAxis("Mouse Y");
         transform.position += new Vector3(moveHorizontal * Time.deltaTime * speed, moveVertical * Time.deltaTime * speed, 0);
+        //this is if you want to add cursor boundaries
        // transform.position = new Vector3
        //(
        //    Mathf.Clamp(transform.position.x, xMin, xMax),

@@ -11,12 +11,11 @@ public class GameController5Target : MonoBehaviour
     public float yRangeMin;
     public float yRangeMax;
     public float startWaitTime;
-    public float timeInterval;
     public float maxNumTargets;
-    //public float curNumTargets;
-
 
     public float gameTime;
+    private float startTime;
+
     public GameObject Target;
     public GameObject Target2;
     public GameObject Target3;
@@ -28,8 +27,6 @@ public class GameController5Target : MonoBehaviour
     public Text hitNumberText;
     public Text hitRateText;
 
-    private float startTime;
-    private int targetNumber;
     private int hitNumber;
     private int missCounter;
     int hitPercent = 100;
@@ -63,7 +60,6 @@ public class GameController5Target : MonoBehaviour
                 Instantiate(Target5, newSpawnPosition, Quaternion.identity);
                 break;
         }
-        //Instantiate(Target, newSpawnPosition, Quaternion.identity);
 
     }
 
@@ -76,7 +72,6 @@ public class GameController5Target : MonoBehaviour
         Cursor.visible = false;
         new WaitForSeconds(startWaitTime);
         startTime = Time.time;
-        targetNumber = 0;
 
         // setup display text
         scoreText.text = "Score: 0";
@@ -88,6 +83,7 @@ public class GameController5Target : MonoBehaviour
         score = 0;
         streak = 0;
 
+        //Spawns initial wave of targets
         for (int i = 0; i < maxNumTargets; i++)
         {
             SpawnTargets();
@@ -111,6 +107,7 @@ public class GameController5Target : MonoBehaviour
             PlayerStats.Misses = missCounter;
             SceneManager.LoadScene("Results");
         }
+
         hitNumberText.text = "You hit: " + hitNumber;
         scoreText.text = "Score : " + score;
         streakText.text = "Current Streak: " + streak;
@@ -125,11 +122,6 @@ public class GameController5Target : MonoBehaviour
         
    }
 
-    public int getTargetNumber()
-    {
-        return targetNumber;
-    }
-
     // Called when a target is hit;
     public void HitNumberPlusOne()
     {
@@ -139,6 +131,7 @@ public class GameController5Target : MonoBehaviour
         GetComponent<AudioSource>().Play();
         SpawnTargets();
     }
+    //Called when you miss a target
     public void Miss()
     {
         streak = 0;
