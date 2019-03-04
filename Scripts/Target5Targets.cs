@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetScript : MonoBehaviour
+public class Target5Targets : MonoBehaviour
 {
     private GameController5Target gameController;
 

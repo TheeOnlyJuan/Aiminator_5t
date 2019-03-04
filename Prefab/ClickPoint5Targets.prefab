@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4789468856178883886}
   - component: {fileID: 4789468856178883885}
   m_Layer: 0
-  m_Name: ClickPoint
+  m_Name: ClickPoint5Targets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4789468856178883884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a54d5b9f17d9614990ebf54c7d58ede, type: 3}
+  m_Script: {fileID: 11500000, guid: fa923809ebd390e4e99cbdee38d9240a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0.03

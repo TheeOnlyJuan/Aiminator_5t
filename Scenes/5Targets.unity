@@ -147,6 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickPoint: {fileID: 4789468856178883884, guid: 678ec85db5c433f4daa57d467fb35b1d,
     type: 3}
+  ClickPointLR: {fileID: 5218984765953750411, guid: d0003fbe78a763f45a1e723752f7b079,
+    type: 3}
   speed: 200
 --- !u!212 &2664883
 SpriteRenderer:
@@ -1154,7 +1156,7 @@ PrefabInstance:
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}
       propertyPath: gameTime
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4756479042267748627, guid: 475565892ac801e4c8fa015c2bb2fba1,
         type: 3}

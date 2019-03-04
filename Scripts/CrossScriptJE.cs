@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrossScript : MonoBehaviour
+public class CrossScriptJE : MonoBehaviour
 {
     public GameObject ClickPoint;
     public GameObject ClickPointLR;

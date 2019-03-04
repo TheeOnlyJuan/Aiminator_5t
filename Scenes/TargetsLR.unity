@@ -1038,7 +1038,7 @@ MonoBehaviour:
   yRangeMax: 30
   startWaitTime: 2
   maxNumTargets: 10
-  gameTime: 30
+  gameTime: 50
   Target: {fileID: 1336089232, guid: 5356b8be9387a7e47b17b558fc17657d, type: 3}
   scoreText: {fileID: 762314381}
   streakText: {fileID: 646775957}

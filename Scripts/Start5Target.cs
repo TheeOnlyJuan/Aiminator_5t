@@ -18,10 +18,10 @@ public class Start5Target : MonoBehaviour
     }
     public void start5Target()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("5Targets");
     }
     public void startLR()
     {
-        SceneManager.LoadScene("HPTargets");
+        SceneManager.LoadScene("TargetsLR");
     }
 }

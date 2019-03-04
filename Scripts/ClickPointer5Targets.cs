@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickPointerController : MonoBehaviour
+public class ClickPointer5Targets : MonoBehaviour
 {
     public float lifeTime;
     private float startTime;
